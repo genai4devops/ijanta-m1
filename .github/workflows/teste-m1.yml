@@ -14,11 +14,6 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/checkout@v4
-        with:
-          repository: genai4devops/clc16
-          ref: ccr-f973af66-g57ubq
-          path: hub
       - uses: hashicorp/setup-terraform@v3
         with:
           terraform_version: 1.17.2
@@ -53,13 +48,12 @@ jobs:
           test "$FALHAS" -eq 9
 
       - name: Monta as soluções dos READMEs na raiz
-        run: python .github/teste/extrair.py . hub
+        run: python .github/teste/extrair.py . .github/teste/hub
 
       - name: Soluções · init, validate e tflint
         run: |
           terraform init -backend=false -input=false -no-color
           terraform validate -no-color
-          rm -rf hub
           tflint --init
           tflint --format compact
 
@@ -107,11 +101,6 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/checkout@v4
-        with:
-          repository: genai4devops/clc16
-          ref: ccr-f973af66-g57ubq
-          path: hub
       - uses: hashicorp/setup-terraform@v3
         with:
           terraform_version: 1.17.2
@@ -126,7 +115,7 @@ jobs:
           AWS_SECRET_ACCESS_KEY: test
           AWS_DEFAULT_REGION: us-east-1
         run: |
-          python .github/teste/extrair.py . hub
+          python .github/teste/extrair.py . .github/teste/hub
           cp labs/desafio/ministack/provider_override.tf.exemplo provider_override.tf
           terraform init -input=false -no-color
           ALVOS="-target=aws_s3_bucket.comprovantes -target=aws_s3_bucket_versioning.comprovantes -target=aws_s3_bucket_public_access_block.comprovantes -target=aws_s3_bucket_server_side_encryption_configuration.comprovantes"
