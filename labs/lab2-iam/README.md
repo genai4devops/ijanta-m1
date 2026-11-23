@@ -117,6 +117,8 @@ e, no máximo, lista o bucket.
 <details>
 <summary><b>Solução</b> · <code>iam_policy.tf</code> de referência</summary>
 
+`iam_policy.tf`:
+
 ```hcl
 resource "aws_iam_policy" "pagamentos" {
   name = "ijanta-pagamentos-worker"

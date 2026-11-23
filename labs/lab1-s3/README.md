@@ -123,7 +123,51 @@ O que precisa passar é o Block Public Access (CKV2_AWS_6) e a ausência de ACL 
 </details>
 
 <details>
-<summary><b>Solução</b> · <code>s3_comprovantes.tf</code> de referência</summary>
+<summary><b>Solução</b> · <code>provider.tf</code>, <code>variables.tf</code> e <code>s3_comprovantes.tf</code> de referência</summary>
+
+`provider.tf`:
+
+```hcl
+terraform {
+  required_version = ">= 1.10"
+
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 6.0"
+    }
+  }
+}
+
+provider "aws" {
+  region = var.region
+
+  default_tags {
+    tags = {
+      Project = "ijanta"
+      Env     = var.environment
+    }
+  }
+}
+```
+
+`variables.tf`:
+
+```hcl
+variable "region" {
+  description = "Região AWS da iJanta"
+  type        = string
+  default     = "us-east-1"
+}
+
+variable "environment" {
+  description = "Ambiente (dev, staging, prod)"
+  type        = string
+  default     = "dev"
+}
+```
+
+`s3_comprovantes.tf`:
 
 ```hcl
 resource "aws_s3_bucket" "comprovantes" {
