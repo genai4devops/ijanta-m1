@@ -9,21 +9,47 @@ Errar aqui não vaza nada. Nenhum lab usa AWS nem exige conta na AWS: o trabalho
 ## Antes de começar
 
 Faça o pre-work [P0 e P1](https://github.com/genai4devops/clc16#pre-work). Ele cria a sua chave do AI Studio
-e a sua cópia deste repositório.
+e prepara o ambiente. Escolha um dos dois caminhos.
+
+### Codespace (recomendado)
+
+Nada para instalar. O Codespace já traz OpenCode, Terraform, tflint, Checkov e Docker.
 
 1. **Use this template → Create a new repository**, na sua conta.
-2. **Code → Codespaces → Create codespace.** O Codespace já traz OpenCode, Terraform, tflint, Checkov e Docker.
-3. No terminal, na raiz do repositório, confira a chave sem imprimir o valor:
+2. Libere o secret `GOOGLE_GENERATIVE_AI_API_KEY` para o repositório novo (github.com → Settings → Codespaces).
+3. **Code → Codespaces → Create codespace.**
 
-   ```bash
-   test -n "$GOOGLE_GENERATIVE_AI_API_KEY" && echo "chave ok" || echo "chave ausente"
-   ```
+### Terminal local
+
+Para o M1, basta clonar: nenhum lab faz push.
+
+```bash
+git clone https://github.com/genai4devops/ijanta-m1.git
+cd ijanta-m1
+```
+
+Instale as ferramentas nas [versões](#versões) abaixo, como no
+[P1](https://github.com/genai4devops/clc16/blob/main/prework/P1-ambiente-iac.md#3-caminho-opcional-instalação-local).
+Docker só é necessário para o desafio do MiniStack. No Windows, use o WSL: o OpenCode 2 não suporta os
+gerenciadores de pacote do Windows. Exporte a chave no terminal sem gravar em arquivo
+(veja o P1).
+
+### Nos dois caminhos
+
+Abra o terminal na raiz do repositório e confira a chave sem imprimir o valor:
+
+```bash
+test -n "$GOOGLE_GENERATIVE_AI_API_KEY" && echo "chave ok" || echo "chave ausente"
+```
+
+Rode o `opencode` sempre **na raiz**: é ali que ele carrega o `AGENTS.md` e o `opencode.json`.
 
 ## Labs
 
 Faça na ordem. Os labs 1 a 3 trabalham **na raiz** do repositório: o Lab 2 usa o bucket do Lab 1, e o Lab 3
-usa as variáveis do Lab 1. Cada README tem prompts, checklist, critério de pronto e dicas que você abre só
-se precisar (hint 1 → hint 2 → solução).
+usa as variáveis do Lab 1. Cada README tem prompts, checklist e critério de pronto. As dicas e as soluções ficam no
+[hub do curso](https://github.com/genai4devops/clc16/tree/main/m1), fora deste repositório, para o
+OpenCode não encontrar a resposta enquanto trabalha.
 
 | Lab | O que você faz |
 |-----|----------------|

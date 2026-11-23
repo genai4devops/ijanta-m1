@@ -4,7 +4,7 @@ Objetivo: auditar a policy legada [`iam_policy.tf`](../../iam_policy.tf), restri
 do Lab 1 e **provar a melhora pelo diff e pelo sensor**, não pelo que o agente diz.
 
 Pré-requisito: o `s3_comprovantes.tf` do Lab 1 na raiz, com o recurso `aws_s3_bucket.comprovantes`.
-Não terminou o Lab 1? Copie a solução do [README do Lab 1](../lab1-s3/README.md#travou-use-na-ordem).
+Não terminou o Lab 1? Copie a [solução do Lab 1](https://github.com/genai4devops/clc16/blob/main/m1/lab1.md).
 
 ## O problema
 
@@ -92,60 +92,10 @@ São 9 falhas. Depois da reescrita correta, todas passam.
 > **E o tflint?** O tflint é um linter de Terraform: pega erro de convenção e de sintaxe, mas o ruleset
 > padrão não julga se uma policy é larga demais. Neste lab, o sensor que detecta o curinga é o Checkov.
 
-## Travou? Use na ordem
+## Travou?
 
-<details>
-<summary><b>Hint 1</b> · o agente trocou o curinga por uma lista enorme</summary>
-
-O agente às vezes troca `"*"` por 20 ações "por garantia". Peça: "justifique cada ação com um uso
-real do worker de pagamentos; remova as que não tiverem uso". O worker lê comprovante, grava comprovante
-e, no máximo, lista o bucket.
-
-</details>
-
-<details>
-<summary><b>Hint 2</b> · o Checkov ainda reclama, ou o validate quebrou</summary>
-
-- `Reference to undeclared resource`: o `s3_comprovantes.tf` do Lab 1 não está na raiz, ou o recurso
-  não se chama `comprovantes`.
-- Checkov ainda falha em CKV_AWS_355: sobrou algum `Resource = "*"`. Procure com `grep -n '"\*"' iam_policy.tf`.
-- `GetObject`/`PutObject` precisam do ARN **com** `/*` (objetos). `ListBucket` precisa do ARN **sem** `/*` (o bucket).
-- ARN escrito à mão (`arn:aws:s3:::ijanta-...`)? Troque pela referência ao recurso.
-
-</details>
-
-<details>
-<summary><b>Solução</b> · <code>iam_policy.tf</code> de referência</summary>
-
-`iam_policy.tf`:
-
-```hcl
-resource "aws_iam_policy" "pagamentos" {
-  name = "ijanta-pagamentos-worker"
-  policy = jsonencode({
-    Version = "2012-10-17"
-    Statement = [
-      {
-        Sid      = "LerEGravarComprovantes"
-        Effect   = "Allow"
-        Action   = ["s3:GetObject", "s3:PutObject"]
-        Resource = "${aws_s3_bucket.comprovantes.arn}/*"
-      },
-      {
-        Sid      = "ListarComprovantes"
-        Effect   = "Allow"
-        Action   = ["s3:ListBucket"]
-        Resource = aws_s3_bucket.comprovantes.arn
-      }
-    ]
-  })
-}
-```
-
-Se o seu bucket usar KMS em vez de AES256, o worker também precisa de `kms:Decrypt` e
-`kms:GenerateDataKey` na chave. A solução do Lab 1 usa AES256 para manter a policy mínima.
-
-</details>
+Dicas (hint 1 → hint 2) e solução de referência: [clc16/m1/lab2.md](https://github.com/genai4devops/clc16/blob/main/m1/lab2.md).
+Elas ficam fora deste repositório para o OpenCode não encontrar a resposta enquanto trabalha.
 
 ## Terminou antes?
 

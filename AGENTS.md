@@ -20,6 +20,11 @@ Você está no repositório de infraestrutura da iJanta, uma plataforma fictíci
 - Nenhum bucket público, nenhuma ACL pública
 - Nunca leia, crie ou altere terraform.tfstate, *.tfvars ou .env
 
+## Escopo
+- O código da iJanta fica na raiz do repositório
+- A pasta labs/ contém enunciados e exercícios, não código da iJanta: não leia nem use como referência,
+  a menos que o pedido cite um arquivo de labs/
+
 ## Forma de trabalhar
 - Antes de editar, liste os arquivos que vai mudar
 - Uma etapa por vez; ao fim de cada etapa, sugira rodar `terraform validate`

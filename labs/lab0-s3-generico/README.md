@@ -25,20 +25,4 @@ O bucket vai guardar comprovantes de pagamento de clientes. O código tem pelo m
 
 Não copie este arquivo para a raiz do repositório: ele é só para este exercício.
 
-<details>
-<summary><b>Respostas</b></summary>
-
-| Linha | Problema | Tipo | O `validate` pega? |
-|-------|----------|------|--------------------|
-| `auto_encrypt = true` | O argumento não existe no provider | Alucinação | Sim: `Unsupported argument` |
-| `versioning { ... }` | Bloco inline depreciado desde o provider v4; hoje é o recurso `aws_s3_bucket_versioning` | Legado | Não |
-| `acl = "public-read"` | Válido, roda, e deixa os comprovantes legíveis por qualquer pessoa | Risco | Não |
-
-Depois de remover o argumento inventado, o `validate` retorna `Success`, e a ACL pública continua lá.
-`validate` verde quer dizer sintaxe válida, não bucket seguro. O [Lab 1](../lab1-s3/README.md) corrige os três.
-
-Fontes: [guia de upgrade v4 do provider AWS](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/guides/version-4-upgrade),
-[`aws_s3_bucket_versioning`](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_versioning),
-[`terraform validate`](https://developer.hashicorp.com/terraform/cli/commands/validate).
-
-</details>
+Respostas: [clc16/m1/lab0.md](https://github.com/genai4devops/clc16/blob/main/m1/lab0.md). Compare depois de fazer a sua lista.
