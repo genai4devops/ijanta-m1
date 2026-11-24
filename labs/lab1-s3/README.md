@@ -15,8 +15,10 @@ Quem escreve é o OpenCode; quem lê, aprova e valida é você.
    opencode
    ```
 
-2. **Etapa 1:** cole o prompt da etapa 1 (abaixo). O agente cria `provider.tf` e `variables.tf`.
-3. **Etapa 2:** cole o prompt restrito da etapa 2. O agente cria `s3_comprovantes.tf`.
+2. **Etapa 1:** cole o prompt da etapa 1 (abaixo). Ele é o exemplo das cinco partes de um prompt restrito.
+   O agente cria `provider.tf` e `variables.tf`.
+3. **Etapa 2:** escreva o seu prompt a partir dos requisitos da etapa 2 e cole no OpenCode.
+   Com o seu prompt, o agente cria `s3_comprovantes.tf`.
 4. **Leia cada mudança antes de aprovar.** O OpenCode pede aprovação (`ask`) antes de editar arquivo ou
    rodar comando. Confira o diff contra o checklist. Se algo estiver fora, recuse e peça a correção.
 5. Valide no terminal (fora do OpenCode, ou aprovando o comando nele):
@@ -44,20 +46,48 @@ Restrições:
 Formato: só HCL, sem explicação. Antes de editar, liste os arquivos que vai criar.
 ```
 
-### Etapa 2 · bucket de comprovantes (prompt restrito)
+### Etapa 2 · bucket de comprovantes (o seu prompt)
+
+Agora o prompt é seu. Use o da etapa 1 como modelo e escreva um prompt com as cinco partes que cubra
+**todos** os requisitos abaixo:
+
+- o arquivo gerado é `s3_comprovantes.tf`
+- contexto: o bucket guarda comprovantes de pagamento da iJanta
+- o recurso principal se chama `aws_s3_bucket.comprovantes` e o nome do bucket usa `var.environment`
+- versioning, Block Public Access e encryption, cada um como recurso `aws_s3_bucket_*` separado
+- nenhuma ACL pública
+- nenhuma credencial no código
+- só argumentos documentados do provider
+- saída só em HCL, sem explicação
+
+<details>
+<summary>Plano B: travou para escrever o prompt?</summary>
+
+Responda a estas perguntas e cada resposta vira uma linha do seu prompt:
+
+1. Que papel o agente deve assumir para que segurança seja prioridade, e não só "fazer funcionar"?
+2. Qual arquivo ele deve criar e para qual projeto?
+3. O que o bucket guarda? Por que isso muda o nível de cuidado?
+4. Qual nome de recurso o checklist espera? De qual variável sai o nome do bucket?
+5. Quais são os três controles do checklist? Eles vão como bloco dentro do bucket ou como recursos separados?
+6. O que nunca pode aparecer no código (pense em acesso público e em segredos)?
+7. Como impedir que o modelo invente argumentos que o provider não tem?
+8. Em que formato você quer a resposta?
+
+Esqueleto com lacunas (preencha cada `____`; não cole como está):
 
 ```text
-Papel: engenheiro de IaC sênior, foco em segurança.
-Tarefa: gere s3_comprovantes.tf para a iJanta.
-Contexto: o bucket guarda comprovantes de pagamento. O recurso principal se chama
-aws_s3_bucket.comprovantes e o nome do bucket usa var.environment.
+Papel: ____.
+Tarefa: ____ para a iJanta.
+Contexto: ____. O recurso principal se chama ____ e ____.
 Restrições:
-- versioning, Block Public Access e encryption
-  como recursos aws_s3_bucket_* separados
-- nenhuma ACL pública; nenhuma credencial no código
-- só argumentos da documentação do provider
-Formato: só HCL, sem explicação.
+- ____, ____ e ____ como ____
+- ____; ____
+- ____
+Formato: ____.
 ```
+
+</details>
 
 As cinco partes (papel, tarefa, contexto, restrições, formato) são as da lição L2 do pre-work.
 Cada restrição vira um item que você confere no diff.
@@ -102,7 +132,7 @@ Elas ficam fora deste repositório para o OpenCode não encontrar a resposta enq
 
 ## Terminou antes?
 
-- Rode o mesmo prompt da etapa 2 de novo, num arquivo temporário, e compare as duas saídas com `diff`.
+- Rode o seu prompt da etapa 2 de novo, num arquivo temporário, e compare as duas saídas com `diff`.
   O mesmo prompt gera código diferente: a saída do modelo é probabilística.
 - Faça o [desafio do MiniStack](../desafio/README.md#b-plan-apply-e-destroy-no-ministack):
   plan, apply e destroy deste bucket num emulador local de AWS.
