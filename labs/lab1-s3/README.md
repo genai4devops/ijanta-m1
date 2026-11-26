@@ -89,7 +89,7 @@ Formato: ____.
 
 </details>
 
-As cinco partes (papel, tarefa, contexto, restrições, formato) são as da lição L2 do pre-work.
+As cinco partes do prompt: papel, tarefa, contexto, restrições e formato.
 Cada restrição vira um item que você confere no diff.
 
 ## Checklist
@@ -127,7 +127,8 @@ O que precisa passar é o Block Public Access (CKV2_AWS_6) e a ausência de ACL 
 
 ## Travou?
 
-Dicas (hint 1 → hint 2) e solução de referência: [clc16/m1/lab1.md](https://github.com/genai4devops/clc16/blob/main/m1/lab1.md).
+Durante a aula, siga o que o instrutor mostra. Dicas (hint 1 → hint 2) e solução de referência ficam em
+[clc16/m1/lab1.md](https://github.com/genai4devops/clc16/blob/main/m1/lab1.md), disponível **só depois da aula**.
 Elas ficam fora deste repositório para o OpenCode não encontrar a resposta enquanto trabalha.
 
 ## Terminou antes?

@@ -8,8 +8,8 @@ Errar aqui não vaza nada. Nenhum lab usa AWS nem exige conta na AWS: o trabalho
 
 ## Antes de começar
 
-Faça o pre-work [P0 e P1](https://github.com/genai4devops/clc16#pre-work). Ele cria a sua chave do AI Studio
-e prepara o ambiente. Escolha um dos dois caminhos.
+Crie a sua chave em [Google AI Studio → API keys](https://aistudio.google.com/apikey), num projeto próprio.
+Depois escolha um dos dois caminhos.
 
 ### Codespace (recomendado)
 
@@ -28,11 +28,13 @@ git clone https://github.com/genai4devops/ijanta-m1.git
 cd ijanta-m1
 ```
 
-Instale as ferramentas nas [versões](#versões) abaixo, como no
-[P1](https://github.com/genai4devops/clc16/blob/main/prework/P1-ambiente-iac.md#3-caminho-opcional-instalação-local).
+Instale as ferramentas nas [versões](#versões) abaixo.
 Docker só é necessário para o desafio do MiniStack. No Windows, use o WSL: o OpenCode 2 não suporta os
-gerenciadores de pacote do Windows. Exporte a chave no terminal sem gravar em arquivo
-(veja o P1).
+gerenciadores de pacote do Windows. Exporte a chave no terminal sem gravar em arquivo:
+
+```bash
+read -rs GOOGLE_GENERATIVE_AI_API_KEY && export GOOGLE_GENERATIVE_AI_API_KEY
+```
 
 ### Nos dois caminhos
 
@@ -48,8 +50,9 @@ Rode o `opencode` sempre **na raiz**: é ali que ele carrega o `AGENTS.md` e o `
 
 Faça na ordem. Os labs 1 a 3 trabalham **na raiz** do repositório: o Lab 2 usa o bucket do Lab 1, e o Lab 3
 usa as variáveis do Lab 1. Cada README tem prompts, checklist e critério de pronto. As dicas e as soluções ficam no
-[hub do curso](https://github.com/genai4devops/clc16/tree/main/m1), fora deste repositório, para o
-OpenCode não encontrar a resposta enquanto trabalha.
+[hub do curso](https://github.com/genai4devops/clc16/tree/main/m1), que fica disponível **só depois da aula**.
+Durante a aula, siga o que o instrutor mostra. O hub fica fora deste repositório para o OpenCode não
+encontrar a resposta enquanto trabalha.
 
 | Lab | O que você faz |
 |-----|----------------|
