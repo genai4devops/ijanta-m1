@@ -4,7 +4,7 @@ Objetivo: auditar a policy legada [`iam_policy.tf`](../../iam_policy.tf), restri
 do Lab 1 e **provar a melhora pelo diff e pelo sensor**, não pelo que o agente diz.
 
 Pré-requisito: o `s3_comprovantes.tf` do Lab 1 na raiz, com o recurso `aws_s3_bucket.comprovantes`.
-Não terminou o Lab 1? Copie a [solução do Lab 1](https://github.com/genai4devops/clc16/blob/main/m1/lab1.md).
+Não terminou o Lab 1? Use a solução do Lab 1 mostrada em aula.
 
 ## O problema
 
@@ -94,7 +94,7 @@ São 9 falhas. Depois da reescrita correta, todas passam.
 
 ## Travou?
 
-Dicas (hint 1 → hint 2) e solução de referência: [clc16/m1/lab2.md](https://github.com/genai4devops/clc16/blob/main/m1/lab2.md).
+Dicas e solução de referência são mostradas em aula.
 Elas ficam fora deste repositório para o OpenCode não encontrar a resposta enquanto trabalha.
 
 ## Terminou antes?

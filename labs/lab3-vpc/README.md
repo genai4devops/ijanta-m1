@@ -85,7 +85,7 @@ Cada output com description. Não mude outros arquivos. Só HCL.
 
 ## Travou?
 
-Dicas (hint 1 → hint 2) e solução de referência: [clc16/m1/lab3.md](https://github.com/genai4devops/clc16/blob/main/m1/lab3.md).
+Dicas e solução de referência são mostradas em aula.
 Elas ficam fora deste repositório para o OpenCode não encontrar a resposta enquanto trabalha.
 
 ## Terminou?
