@@ -25,4 +25,5 @@ O bucket vai guardar comprovantes de pagamento de clientes. O código tem pelo m
 
 Não copie este arquivo para a raiz do repositório: ele é só para este exercício.
 
-As respostas são mostradas em aula. Compare depois de fazer a sua lista.
+As respostas são discutidas em aula e ficam em [clc16/m1/lab0.md](https://github.com/genai4devops/clc16/blob/main/m1/lab0.md),
+disponível **só depois da aula**. Compare depois de fazer a sua lista.

@@ -85,7 +85,8 @@ Cada output com description. Não mude outros arquivos. Só HCL.
 
 ## Travou?
 
-Dicas e solução de referência são mostradas em aula.
+Durante a aula, siga o que o instrutor mostra. Dicas (hint 1 → hint 2) e solução de referência ficam em
+[clc16/m1/lab3.md](https://github.com/genai4devops/clc16/blob/main/m1/lab3.md), disponível **só depois da aula**.
 Elas ficam fora deste repositório para o OpenCode não encontrar a resposta enquanto trabalha.
 
 ## Terminou?

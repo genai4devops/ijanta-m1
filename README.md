@@ -49,8 +49,10 @@ Rode o `opencode` sempre **na raiz**: é ali que ele carrega o `AGENTS.md` e o `
 ## Labs
 
 Faça na ordem. Os labs 1 a 3 trabalham **na raiz** do repositório: o Lab 2 usa o bucket do Lab 1, e o Lab 3
-usa as variáveis do Lab 1. Cada README tem prompts, checklist e critério de pronto. As dicas e as soluções são mostradas
-em aula, fora deste repositório, para o OpenCode não encontrar a resposta enquanto trabalha.
+usa as variáveis do Lab 1. Cada README tem prompts, checklist e critério de pronto. As dicas e as soluções ficam no
+[hub do curso](https://github.com/genai4devops/clc16/tree/main/m1), que fica disponível **só depois da aula**.
+Durante a aula, siga o que o instrutor mostra. O hub fica fora deste repositório para o OpenCode não
+encontrar a resposta enquanto trabalha.
 
 | Lab | O que você faz |
 |-----|----------------|
