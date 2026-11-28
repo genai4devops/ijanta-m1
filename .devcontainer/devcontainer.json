@@ -1,5 +1,5 @@
 {
-  "name": "iJanta · CLC16 M1",
+  "name": "iJanta · CLC_16 M1",
   "image": "mcr.microsoft.com/devcontainers/base:ubuntu-24.04",
   "features": {
     "ghcr.io/devcontainers/features/terraform:1": {

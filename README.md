@@ -1,6 +1,6 @@
 # iJanta · Módulo 1 · Infraestrutura Inteligente
 
-Labs do Módulo 1 do CLC16: Terraform gerado com o OpenCode, conferido com sensors e aprovado por você.
+Labs do Módulo 1 do CLC_16: Terraform gerado com o OpenCode, conferido com sensors e aprovado por você.
 
 A iJanta é uma plataforma **fictícia** de delivery de comida (pedidos, pagamentos, fotos de pratos).
 Errar aqui não vaza nada. Nenhum lab usa AWS nem exige conta na AWS: o trabalho termina no
